@@ -1,0 +1,49 @@
+<!-- ../views/loginRoute.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Movies Explorer: Favorites & Trailers</title>
+</head>
+
+<body>
+    <h1>Movies Explorer: Favorites & Trailers</h1>
+    <h2>login</h2>
+    <div class="user-login">
+        <form method="POST" action="/login/signingUp">
+
+                <div class="input-user">
+                        <label for="username">Username or Primary email</label>
+                        <input type="text" id="username" name="username" autocomplete="username" autofocus="autofocus" autocapitalize="off" autocorrect="off" required="required" title="Username or primary email is required.">
+                </div>
+
+                <div class="input-password">
+                         <label for="password">Password</label>
+                        <input type="password" id="password" name="password" autocapitalize="off" autocorrect="off" required="required" title="password is required">
+                </div>
+
+                <button class="sign-in" type="submit">Sign in</button>
+
+                <div class="remeber-me">
+                        <label> <input type="checkbox"> Remember me</label>
+                        <a href="/">Forgot password?</a>
+                </div>
+
+                <div class="create-account">
+                        <p>Don't have an account yet? <a href="/createAccount">Create an account</a></p>
+                </div>
+ 
+                <div class="guest">
+                        <a href="/">Login as a guest</a>
+                </div>
+         </form>
+    </div>
+
+    
+
+
+</body>
+</html>
