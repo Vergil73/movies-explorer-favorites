@@ -19,20 +19,16 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}));
 
 // Login page
-const login = require("./routes/loginRoute");
+const login = require("./routes/authenticationRoute");
 app.use("/", login);
 
 // Homepage
 const homepage = require("./routes/homepageRoute");
 app.use("/", homepage);
 
-// Create account
-const createAccount = require("./routes/createAccountRoute");
-app.use("/", createAccount);
-
 // Authenticating the user
-app.use(passport.initialize());
-app.use(passport.session()); 
+// app.use(passport.initialize());
+// app.use(passport.session()); 
 
 
 
