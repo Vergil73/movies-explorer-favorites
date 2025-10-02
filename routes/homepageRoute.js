@@ -2,9 +2,8 @@
 
 const { Router } = require("express");
 const routes = Router();
+const { homeMovies } = require('../api/axiosApi');
 
-routes.get("/movies", (req, res) => {
-    res.render("homepage");
-});
+routes.get("/", homeMovies);
 
 module.exports = routes;

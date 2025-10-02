@@ -51,7 +51,9 @@ app.use("/", login);
 const homepage = require("./routes/homepageRoute");
 app.use("/", homepage);
 
-
+// Details page
+const details = require("./routes/detailsRoute");
+app.use("/", details);
 
 app.listen(PORT, () => {
     console.log(`Server is running on Port ${PORT}`);

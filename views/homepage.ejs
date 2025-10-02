@@ -11,6 +11,20 @@
 <body>
     <h1>Movies Explorer: Favorites & Trailers</h1>
 
+    <div class="search">
+        <div class="input-movieName">
+            <input type="text" id="movieName" name="movieName" placeholder="Quick Search"> 
+            <button id="searchButton" type="submit">search</button>
+        </div>
+    </div>
 
+    <br>
+
+    <% moviesDetails.forEach(data => { %>
+        <a href="/movies/<%= data.Title %>">
+        <img src="<%= data.Poster %>">
+        <h3><%= data.Title %></h3> 
+        </a>
+    <% }); %>
 </body>
 </html>
