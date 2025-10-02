@@ -11,14 +11,5 @@ async function insertNewAccount(username, email, password) {
     }
 }
 
-async function findUser(username){
-    try{
-        const { rows } = await pool.query("SELECT * FROM users WHERE username=$1", [username]);
-        return rows[0];
-    } catch(err){
-        console.log(err);
-    }
-}
-
-module.exports = { insertNewAccount, findUser };
+module.exports = { insertNewAccount };
 
