@@ -55,6 +55,10 @@ app.use("/", homepage);
 const details = require("./routes/detailsRoute");
 app.use("/", details);
 
+// Search page
+const search = require("./routes/searchRoute");
+app.use("/", search);
+
 app.listen(PORT, () => {
     console.log(`Server is running on Port ${PORT}`);
 });
