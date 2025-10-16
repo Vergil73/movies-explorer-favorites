@@ -11,13 +11,7 @@
 <body>
     <h1>Movies Explorer: Favorites & Trailers</h1>
 
-    <div class="search">
-        <form method="GET" action="/search">
-            <div class="input-movieName">
-                <input type="search" id="Movie" name="q" placeholder="Quick Search" autocomplete="off" >
-            </div>
-        </form>
-    </div>
+    <%- include('templates/search.ejs') %>
 
     <br>
 
@@ -26,6 +20,14 @@
         <img src="<%= data.Poster %>">
         <h3><%= data.Title %></h3> 
         </a>
+
+        <form action="POST" action="/favorites">
+            <div class="save-movies">
+                <button type="submit">Add To Favorites</button>
+            </div>
+        </form>
+        <br>
+        <br>
     <% }); %>
 </body>
 </html>

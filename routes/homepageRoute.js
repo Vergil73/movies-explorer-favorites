@@ -2,7 +2,7 @@
 
 const { Router } = require("express");
 const routes = Router();
-const { homeMovies } = require('../api/axiosApi');
+const { homeMovies } = require('../api/ombdApi');
 
 routes.get("/", homeMovies);
 

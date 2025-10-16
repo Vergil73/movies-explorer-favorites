@@ -1,8 +1,9 @@
 // app.js[]
+require('dotenv').config();
 
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 // Session
 const session = require("express-session");
@@ -56,8 +57,20 @@ const details = require("./routes/detailsRoute");
 app.use("/", details);
 
 // Search page
-const search = require("./routes/searchRoute");
+const search = require("./routes/searchResultRoute");
 app.use("/", search);
+
+// Favorites 
+const favorites = require("./routes/favoritesRoute");
+app.use("/", favorites);
+
+// Yts
+const {yts} = require("./api/ytsApi");
+app.use("/yts", yts);
+
+// // Youtube
+// const {youtube} = require("./api/youtubeApi");
+// app.use("/youtube", youtube);
 
 app.listen(PORT, () => {
     console.log(`Server is running on Port ${PORT}`);
