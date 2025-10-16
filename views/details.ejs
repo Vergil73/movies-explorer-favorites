@@ -1,0 +1,63 @@
+<!-- /views/details.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title><%= moviesDetails.Title %></title>
+</head>
+<body>
+   <a href="/">
+      <h1>Movies Explorer: Favorites & Trailers</h1>
+   </a>
+ 
+   <%- include('templates/search.ejs') %>
+
+   <h1><%= moviesDetails.Title %></h1>
+   
+   <% if ( moviesDetails.Poster !== 'N/A') { %>
+      <img src="<%= moviesDetails.Poster %>" alt="<%= moviesDetails.Title %>">
+   <% } %>
+
+   <br>
+   <br>
+
+
+   <form action="POST" action="/favorites">
+      <div class="save-movies">
+         <button type="submit">Add To Favorites</button>
+      </div>
+   </form>
+   
+   <br>
+   
+   <iframe src="https://www.youtube.com/embed/<%= video.id.videoId %>" allowfullscreen ></iframe> 
+
+
+   <h2>Movie Details</h2>
+   
+   <% for (const key in moviesDetails) { %>
+      <% 
+         const value = moviesDetails[key];
+         // Skip poster and ratings, as they are handled separately
+         if (key === 'Poster' || key === 'Ratings' || key === 'Title') {
+            continue;
+         }
+      %>
+      
+      <ul>
+         <li><strong><%= key %>:</strong> <%= value %></li>
+      </ul>
+   <% } %>
+   
+   <% if (moviesDetails.Ratings && moviesDetails.Ratings.length > 0) { %>
+      <h2>Ratings</h2>
+      <ul>
+      <% moviesDetails.Ratings.forEach(rating => { %>
+         <li><strong><%= rating.Source %>:</strong> <%= rating.Value %></li>
+      <% }); %>
+      </ul>
+   <% } %>
+   
+</body>
+</html>

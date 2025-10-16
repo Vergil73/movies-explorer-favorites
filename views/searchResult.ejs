@@ -1,0 +1,34 @@
+<!-- ./views/searchResult.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Explorer</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <a href="/">
+        <h1>Movies Explorer: Favorites & Trailers</h1>
+    </a>
+    
+    <h1>Results for: <%= movie %></h1>
+    <%- include('templates/search.ejs') %>
+    <br>
+
+    <% moviesDetails.forEach(data => { %>
+        <a href="/movies/<%= data.Title %>">
+        <img src="<%= data.Poster %>">
+        <h3><%= data.Title %></h3> 
+        </a>
+        <form method="POST" action="/favorites">
+            <div class="save-movies">
+                <button type="submit">Add To Favorites</button>
+            </div>
+        </form>
+        <br>
+        <br>
+    <% }); %>
+</body>
+</html>
