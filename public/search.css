@@ -1,0 +1,43 @@
+.search {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 1rem;
+}
+
+.search form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.input-movieName input {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+
+    border-radius: 999px;
+    border: 2px solid rgba(0,0,0,0.15);
+    outline: none;
+
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-movieName input:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+}
+
+.input-movieName input::placeholder {
+    color: #999;
+}
+
+@media (max-width: 440px) {
+    .search {
+        margin: 1.5rem 1rem;
+    }
+
+    .input-movieName input {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+    }
+}

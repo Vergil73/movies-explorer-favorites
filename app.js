@@ -5,33 +5,33 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT;
 
-// Session
-const session = require("express-session");
-const passport = require("passport");
+// // Session
+// const session = require("express-session");
+// const passport = require("passport");
 
-app.use(session({
-  secret: 'YOUR_SECRET_KEY',
-  resave: false,
-  saveUninitialized: false,
-}));
+// app.use(session({
+//   secret: 'YOUR_SECRET_KEY',
+//   resave: false,
+//   saveUninitialized: false,
+// }));
 
-passport.serializeUser(function(user, cb) {
-  process.nextTick(function() {
-    return cb(null, {
-      id: user.id,
-      username: user.username,
-    });
-  });
-});
+// passport.serializeUser(function(user, cb) {
+//   process.nextTick(function() {
+//     return cb(null, {
+//       id: user.id,
+//       username: user.username,
+//     });
+//   });
+// });
 
-passport.deserializeUser(function(user, cb) {
-  process.nextTick(function() {
-    return cb(null, user);
-  });
-});
+// passport.deserializeUser(function(user, cb) {
+//   process.nextTick(function() {
+//     return cb(null, user);
+//   });
+// });
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 // Setup for views
